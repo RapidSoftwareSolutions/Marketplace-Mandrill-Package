@@ -1,0 +1,3199 @@
+{
+  "package": "Mandrill",
+  "tagline": "Mandrill API",
+  "description": "Mandrill",
+  "image": "http:\/\/logo.clearbit.com\/mandrill.com",
+  "repo": "https:\/\/github.com\/RapidSoftwareSolutions\/Marketplace-Mandrill-Package",
+  "keywords": [
+  ],
+  "accounts": {
+    "domain": "mandrill.com",
+    "credentials": [
+      "apiKey"
+    ]
+  },
+  "blocks": [
+    {
+      "name": "getUserInfo",
+      "description": "Return the information about the API-connected user",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "validateApiKey",
+      "description": "Validate an API key and respond to a ping",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSenders",
+      "description": "Return the senders that have tried to use this account, both verified and unverified",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "sendTransactionalMessage",
+      "description": "Send a new transactional message through Mandrill",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "messageHtml",
+          "type": "String",
+          "info": "The full HTML content to be sent",
+          "required": false
+        },
+        {
+          "name": "messageText",
+          "type": "String",
+          "info": "Optional full text content to be sent",
+          "required": false
+        },
+        {
+          "name": "messageSubject",
+          "type": "String",
+          "info": "The message subject",
+          "required": false
+        },
+        {
+          "name": "messageFromEmail",
+          "type": "String",
+          "info": "The sender email address.",
+          "required": true
+        },
+        {
+          "name": "messageFromName",
+          "type": "String",
+          "info": "Optional from name to be used",
+          "required": false
+        },
+        {
+          "name": "messageTo",
+          "type": "Array",
+          "info": "An array of recipient information.",
+          "required": true
+        },
+        {
+          "name": "messageHeaders",
+          "type": "JSON",
+          "info": "Optional extra headers to add to the message (most headers are allowed)",
+          "required": false
+        },
+        {
+          "name": "messageImportant",
+          "type": "Boolean",
+          "info": "Whether or not this message is important, and should be delivered ahead of non-important messages",
+          "required": false
+        },
+        {
+          "name": "messageTrackOpens",
+          "type": "Boolean",
+          "info": "Whether or not to turn on open tracking for the message",
+          "required": false
+        },
+        {
+          "name": "messageTrackClicks",
+          "type": "Boolean",
+          "info": "Whether or not to turn on click tracking for the message",
+          "required": false
+        },
+        {
+          "name": "messageAutoText",
+          "type": "Boolean",
+          "info": "Whether or not to automatically generate a text part for messages that are not given text",
+          "required": false
+        },
+        {
+          "name": "messageAutoHtml",
+          "type": "Boolean",
+          "info": "Whether or not to automatically generate an HTML part for messages that are not given HTML",
+          "required": false
+        },
+        {
+          "name": "messageInlineCss",
+          "type": "Boolean",
+          "info": "Whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size",
+          "required": false
+        },
+        {
+          "name": "messageUseStripQs",
+          "type": "Boolean",
+          "info": "Whether or not to strip the query string from URLs when aggregating tracked URL data",
+          "required": false
+        },
+        {
+          "name": "messagePreserveRecipients",
+          "type": "Boolean",
+          "info": "Whether or not to expose all recipients in to \"To\" header for each email",
+          "required": false
+        },
+        {
+          "name": "messageViewContentLink",
+          "type": "Boolean",
+          "info": "Whether or not to remove content logging for sensitive emails",
+          "required": false
+        },
+        {
+          "name": "messageBccAddress",
+          "type": "String",
+          "info": "An optional address to receive an exact copy of each recipient's email",
+          "required": false
+        },
+        {
+          "name": "messageTrackingDomain",
+          "type": "String",
+          "info": "A custom domain to use for tracking opens and clicks instead of mandrillapp.com",
+          "required": false
+        },
+        {
+          "name": "messageSigningDomain",
+          "type": "String",
+          "info": "A custom domain to use for SPF/DKIM signing instead of mandrill (for \"via\" or \"on behalf of\" in email clients)",
+          "required": false
+        },
+        {
+          "name": "messageReturnPathDomain",
+          "type": "String",
+          "info": "A custom domain to use for the messages's return-path",
+          "required": false
+        },
+        {
+          "name": "messageMerge",
+          "type": "Boolean",
+          "info": "Whether to evaluate merge tags in the message. Will automatically be set to true if either messageMergeVars or messageGlobalMergeVars are provided.",
+          "required": false
+        },
+        {
+          "name": "messageMergeLanguage",
+          "type": "String",
+          "info": "The merge tag language to use when evaluating merge tags, either mailchimp or handlebars",
+          "required": false
+        },
+        {
+          "name": "messageGlobalMergeVars",
+          "type": "Array",
+          "info": "Global merge variables to use for all recipients. You can override these per recipient.",
+          "required": false
+        },
+        {
+          "name": "messageMergeVars",
+          "type": "Array",
+          "info": "Per-recipient merge variables, which override global merge variables with the same name.",
+          "required": false
+        },
+        {
+          "name": "messageTags",
+          "type": "Array",
+          "info": "An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
+          "required": false
+        },
+        {
+          "name": "messageSubaccount",
+          "type": "String",
+          "info": "The unique id of a subaccount for this message - must already exist or will fail with an error",
+          "required": false
+        },
+        {
+          "name": "messageGoogleAnalyticsDomains",
+          "type": "Array",
+          "info": "An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
+          "required": false
+        },
+        {
+          "name": "messageGoogleAnalyticsCampaign",
+          "type": "String",
+          "info": "String indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.",
+          "required": false
+        },
+        {
+          "name": "messageMetadata",
+          "type": "Array",
+          "info": "Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
+          "required": false
+        },
+        {
+          "name": "messageRecipientMetadata",
+          "type": "Array",
+          "info": "Per-recipient metadata that will override the global values specified in the metadata parameter.",
+          "required": false
+        },
+        {
+          "name": "messageAttachments",
+          "type": "Array",
+          "info": "An array of supported attachments to add to the message",
+          "required": false
+        },
+        {
+          "name": "messageImages",
+          "type": "Array",
+          "info": "An array of embedded images to add to the message",
+          "required": false
+        },
+        {
+          "name": "async",
+          "type": "Boolean",
+          "info": "Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of \"queued\" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.",
+          "required": false
+        },
+        {
+          "name": "ipPool",
+          "type": "String",
+          "info": "The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.",
+          "required": false
+        },
+        {
+          "name": "sendAt",
+          "type": "String",
+          "info": "When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "sendTemplateTransactionalMessage",
+      "description": "Send a new transactional message through Mandrill using a template",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "messageHtml",
+          "type": "String",
+          "info": "The full HTML content to be sent",
+          "required": false
+        },
+        {
+          "name": "templateName",
+          "type": "String",
+          "info": "The immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.",
+          "required": true
+        },
+        {
+          "name": "templateContent",
+          "type": "Array",
+          "info": "An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
+          "required": true
+        },
+        {
+          "name": "messageText",
+          "type": "String",
+          "info": "Optional full text content to be sent",
+          "required": false
+        },
+        {
+          "name": "messageSubject",
+          "type": "String",
+          "info": "The message subject",
+          "required": false
+        },
+        {
+          "name": "messageFromEmail",
+          "type": "String",
+          "info": "The sender email address.",
+          "required": true
+        },
+        {
+          "name": "messageFromName",
+          "type": "String",
+          "info": "Optional from name to be used",
+          "required": false
+        },
+        {
+          "name": "messageTo",
+          "type": "Array",
+          "info": "An array of recipient information.",
+          "required": true
+        },
+        {
+          "name": "messageHeaders",
+          "type": "JSON",
+          "info": "Optional extra headers to add to the message (most headers are allowed)",
+          "required": false
+        },
+        {
+          "name": "messageImportant",
+          "type": "Boolean",
+          "info": "Whether or not this message is important, and should be delivered ahead of non-important messages",
+          "required": false
+        },
+        {
+          "name": "messageTrackOpens",
+          "type": "Boolean",
+          "info": "Whether or not to turn on open tracking for the message",
+          "required": false
+        },
+        {
+          "name": "messageTrackClicks",
+          "type": "Boolean",
+          "info": "Whether or not to turn on click tracking for the message",
+          "required": false
+        },
+        {
+          "name": "messageAutoText",
+          "type": "Boolean",
+          "info": "Whether or not to automatically generate a text part for messages that are not given text",
+          "required": false
+        },
+        {
+          "name": "messageAutoHtml",
+          "type": "Boolean",
+          "info": "Whether or not to automatically generate an HTML part for messages that are not given HTML",
+          "required": false
+        },
+        {
+          "name": "messageInlineCss",
+          "type": "Boolean",
+          "info": "Whether or not to automatically inline all CSS styles provided in the message HTML - only for HTML documents less than 256KB in size",
+          "required": false
+        },
+        {
+          "name": "messageUseStripQs",
+          "type": "Boolean",
+          "info": "Whether or not to strip the query string from URLs when aggregating tracked URL data",
+          "required": false
+        },
+        {
+          "name": "messagePreserveRecipients",
+          "type": "Boolean",
+          "info": "Whether or not to expose all recipients in to \"To\" header for each email",
+          "required": false
+        },
+        {
+          "name": "messageViewContentLink",
+          "type": "Boolean",
+          "info": "Whether or not to remove content logging for sensitive emails",
+          "required": false
+        },
+        {
+          "name": "messageBccAddress",
+          "type": "String",
+          "info": "An optional address to receive an exact copy of each recipient's email",
+          "required": false
+        },
+        {
+          "name": "messageTrackingDomain",
+          "type": "String",
+          "info": "A custom domain to use for tracking opens and clicks instead of mandrillapp.com",
+          "required": false
+        },
+        {
+          "name": "messageSigningDomain",
+          "type": "String",
+          "info": "A custom domain to use for SPF/DKIM signing instead of mandrill (for \"via\" or \"on behalf of\" in email clients)",
+          "required": false
+        },
+        {
+          "name": "messageReturnPathDomain",
+          "type": "String",
+          "info": "A custom domain to use for the messages's return-path",
+          "required": false
+        },
+        {
+          "name": "messageMerge",
+          "type": "Boolean",
+          "info": "Whether to evaluate merge tags in the message. Will automatically be set to true if either messageMergeVars or messageGlobalMergeVars are provided.",
+          "required": false
+        },
+        {
+          "name": "messageMergeLanguage",
+          "type": "String",
+          "info": "The merge tag language to use when evaluating merge tags, either mailchimp or handlebars",
+          "required": false
+        },
+        {
+          "name": "messageGlobalMergeVars",
+          "type": "Array",
+          "info": "Global merge variables to use for all recipients. You can override these per recipient.",
+          "required": false
+        },
+        {
+          "name": "messageMergeVars",
+          "type": "Array",
+          "info": "Per-recipient merge variables, which override global merge variables with the same name.",
+          "required": false
+        },
+        {
+          "name": "messageTags",
+          "type": "Array",
+          "info": "An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
+          "required": false
+        },
+        {
+          "name": "messageSubaccount",
+          "type": "String",
+          "info": "The unique id of a subaccount for this message - must already exist or will fail with an error",
+          "required": false
+        },
+        {
+          "name": "messageGoogleAnalyticsDomains",
+          "type": "Array",
+          "info": "An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
+          "required": false
+        },
+        {
+          "name": "messageGoogleAnalyticsCampaign",
+          "type": "String",
+          "info": "String indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.",
+          "required": false
+        },
+        {
+          "name": "messageMetadata",
+          "type": "Array",
+          "info": "Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
+          "required": false
+        },
+        {
+          "name": "messageRecipientMetadata",
+          "type": "Array",
+          "info": "Per-recipient metadata that will override the global values specified in the metadata parameter.",
+          "required": false
+        },
+        {
+          "name": "messageAttachments",
+          "type": "Array",
+          "info": "An array of supported attachments to add to the message",
+          "required": false
+        },
+        {
+          "name": "messageImages",
+          "type": "Array",
+          "info": "An array of embedded images to add to the message",
+          "required": false
+        },
+        {
+          "name": "async",
+          "type": "Boolean",
+          "info": "Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of \"queued\" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.",
+          "required": false
+        },
+        {
+          "name": "ipPool",
+          "type": "String",
+          "info": "The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.",
+          "required": false
+        },
+        {
+          "name": "sendAt",
+          "type": "String",
+          "info": "When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchMessages",
+      "description": "Search recently sent messages and optionally narrow by date range, tags, senders, and API keys.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "info": "Search terms to find matching messages",
+          "required": false
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Start date",
+          "required": false
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "End date",
+          "required": false
+        },
+        {
+          "name": "tags",
+          "type": "Array",
+          "info": "An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
+          "required": false
+        },
+        {
+          "name": "senders",
+          "type": "Array",
+          "info": "An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
+          "required": false
+        },
+        {
+          "name": "apiKeys",
+          "type": "Array",
+          "info": "An array of API keys to narrow the search to, will return messages sent by ANY of the keys",
+          "required": false
+        },
+        {
+          "name": "limit",
+          "type": "Number",
+          "info": "The maximum number of results to return, defaults to 100, 1000 is the maximum",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchTimeSeriesMessages",
+      "description": "Search the content of recently sent messages and return the aggregated hourly stats for matching messages",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "info": "Search terms to find matching messages",
+          "required": false
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Start date",
+          "required": false
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "End date",
+          "required": false
+        },
+        {
+          "name": "tags",
+          "type": "Array",
+          "info": "An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
+          "required": false
+        },
+        {
+          "name": "senders",
+          "type": "Array",
+          "info": "An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleMessage",
+      "description": "Get the information for a single recently sent message",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "messageId",
+          "type": "String",
+          "info": "The unique id of the message to get - passed as the \"_id\" field in webhooks, send calls, or search calls",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "parseEmailMessage",
+      "description": "Parse the full MIME document for an email message, returning the content of the message broken into its constituent pieces",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "rawMessage",
+          "type": "String",
+          "info": "The full MIME document of an email message",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "sendRawMessage",
+      "description": "Take a raw MIME document for a message, and send it exactly as if it were sent through Mandrill's SMTP servers",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "rawMessage",
+          "type": "String",
+          "info": "The full MIME document of an email message",
+          "required": true
+        },
+        {
+          "name": "fromEmail",
+          "type": "String",
+          "info": "Optionally define the sender address - otherwise we'll use the address found in the provided headers",
+          "required": false
+        },
+        {
+          "name": "fromName",
+          "type": "String",
+          "info": "Optionally define the sender alias",
+          "required": false
+        },
+        {
+          "name": "to",
+          "type": "Array",
+          "info": "Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
+          "required": false
+        },
+        {
+          "name": "async",
+          "type": "Boolean",
+          "info": "Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of \"queued\" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.",
+          "required": false
+        },
+        {
+          "name": "ipPool",
+          "type": "String",
+          "info": "The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.",
+          "required": false
+        },
+        {
+          "name": "sendAt",
+          "type": "String",
+          "info": "When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.",
+          "required": false
+        },
+        {
+          "name": "returnPathDomain",
+          "type": "String",
+          "info": "A custom domain to use for the messages's return-path",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getScheduledEmails",
+      "description": "Queries your scheduled emails.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "to",
+          "type": "String",
+          "info": "An optional recipient address to restrict results to",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "cancelScheduledEmail",
+      "description": "Cancels a scheduled email.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "messageId",
+          "type": "String",
+          "info": "A scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "rescheduleScheduledEmail",
+      "description": "Reschedules a scheduled email.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "messageId",
+          "type": "String",
+          "info": "A scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled",
+          "required": true
+        },
+        {
+          "name": "sendAt",
+          "type": "String",
+          "info": "The new UTC timestamp when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getUserDefinedTagInfo",
+      "description": "Return all of the user-defined tag information",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteTag",
+      "description": "Deletes a tag permanently. Deleting a tag removes the tag from any messages that have been sent, and also deletes the tag's stats. There is no way to undo this operation, so use it carefully.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "tag",
+          "type": "String",
+          "info": "Tag name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleTag",
+      "description": "Return more detailed information about a single tag, including aggregates of recent stats",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "tag",
+          "type": "String",
+          "info": "Tag name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTagHistory",
+      "description": "Return the recent history (hourly stats for the last 30 days) for a tag",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "tag",
+          "type": "String",
+          "info": "Tag name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAllTagsHistory",
+      "description": "Return the recent history (hourly stats for the last 30 days) for all tags",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addEmailToRejectionBlacklist",
+      "description": "Adds an email to your email rejection blacklist. Addresses that you add manually will never expire and there is no reputation penalty for removing them from your blacklist. Attempting to blacklist an address that has been whitelisted will have no effect.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Email address to block",
+          "required": true
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "info": "Optional comment describing the rejection",
+          "required": false
+        },
+        {
+          "name": "subaccount",
+          "type": "String",
+          "info": "Optional unique identifier for the subaccount to limit the blacklist entry",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEmailRejectionBlacklist",
+      "description": "Retrieves your email rejection blacklist. You can provide an email address to limit the results. Returns up to 1000 results. By default, entries that have expired are excluded from the results",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Optional email address to search by",
+          "required": false
+        },
+        {
+          "name": "includeExpired",
+          "type": "String",
+          "info": "Whether to include rejections that have already expired.n",
+          "required": false
+        },
+        {
+          "name": "subaccount",
+          "type": "String",
+          "info": "Optional unique identifier for the subaccount to limit the blacklist entry",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteEmailRejection",
+      "description": "Deletes an email rejection. There is no limit to how many rejections you can remove from your blacklist, but keep in mind that each deletion has an affect on your reputation.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Email address to block",
+          "required": true
+        },
+        {
+          "name": "subaccount",
+          "type": "String",
+          "info": "Optional unique identifier for the subaccount to limit the blacklist entry",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addEmailToRejectionWhitelist",
+      "description": "Adds an email to your email rejection whitelist. If the address is currently on your blacklist, that blacklist entry will be removed automatically.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Email address to block",
+          "required": true
+        },
+        {
+          "name": "comment",
+          "type": "String",
+          "info": "Optional description of why the email was whitelisted",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getEmailRejectionWhitelist",
+      "description": "Retrieves your email rejection whitelist. You can provide an email address or search prefix to limit the results. Returns up to 1000 results.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "String",
+          "info": "Optional email address to search by",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSenderDomains",
+      "description": "Returns the sender domains that have been added to this account.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addSenderDomain",
+      "description": "Adds a sender domain to your account. Sender domains are added automatically as you send, but you can use this call to add them ahead of time.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "checkSenderDomain",
+      "description": "Checks the SPF and DKIM settings for a domain. If you haven't already added this domain to your account, it will be added automatically.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "verifyDomain",
+      "description": "Sends a verification email in order to verify ownership of a domain.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        },
+        {
+          "name": "mailbox",
+          "type": "String",
+          "info": "Mailbox at the domain where the verification email should be sent",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleSender",
+      "description": "Return more detailed information about a single sender, including aggregates of recent stats",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "info": "Email address of the sender",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSenderHistory",
+      "description": "Return the recent history (hourly stats for the last 30 days) for a sender",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "address",
+          "type": "String",
+          "info": "Email address of the sender",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getMostClickedURLs",
+      "description": "Get the 100 most clicked URLs",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "searchMostClickedURLs",
+      "description": "Return the 100 most clicked URLs that match the search query given",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "info": "Search query",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getURLHistory",
+      "description": "Return the 100 most clicked URLs that match the search query given",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "url",
+          "type": "String",
+          "info": "Existing URL",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTrackingDomains",
+      "description": "Get the list of tracking domains set up for this account",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addTrackingDomain",
+      "description": "Add a tracking domain to your account",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "checkTrackingDomain",
+      "description": "Checks the CNAME settings for a tracking domain. The domain must have been added already with the add-tracking-domain call.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addTemplate",
+      "description": "Add a new template",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        },
+        {
+          "name": "fromName",
+          "type": "String",
+          "info": "Default sending address for emails sent using this template",
+          "required": false
+        },
+        {
+          "name": "fromEmail",
+          "type": "String",
+          "info": "Default from name to be used",
+          "required": false
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "info": "Default subject line to be used",
+          "required": false
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "info": "The HTML code for the template with mc:edit attributes for the editable elements",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "info": "Default text part to be used when sending with this template",
+          "required": false
+        },
+        {
+          "name": "publish",
+          "type": "Boolean",
+          "info": "Set to false to add a draft template without publishing",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "Array",
+          "info": "An optional array of up to 10 labels to use for filtering templates",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateTemplate",
+      "description": "Update existing template",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        },
+        {
+          "name": "fromName",
+          "type": "String",
+          "info": "Default sending address for emails sent using this template",
+          "required": false
+        },
+        {
+          "name": "fromEmail",
+          "type": "String",
+          "info": "Default from name to be used",
+          "required": false
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "info": "Default subject line to be used",
+          "required": false
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "info": "The HTML code for the template with mc:edit attributes for the editable elements",
+          "required": false
+        },
+        {
+          "name": "text",
+          "type": "String",
+          "info": "Default text part to be used when sending with this template",
+          "required": false
+        },
+        {
+          "name": "publish",
+          "type": "Boolean",
+          "info": "Set to false to add a draft template without publishing",
+          "required": false
+        },
+        {
+          "name": "labels",
+          "type": "Array",
+          "info": "An optional array of up to 10 labels to use for filtering templates",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTemplateInfo",
+      "description": "Get the information for an existing template",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "publishTemplate",
+      "description": "Publish the content for the template. Any new messages sent using this template will start using the content that was previously in draft.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getTemplateHistory",
+      "description": "Return the recent history (hourly stats for the last 30 days) for a template",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "renderTemplate",
+      "description": "Inject content and optionally merge fields into a template, returning the HTML that results",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "templateName",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        },
+        {
+          "name": "templateContent",
+          "type": "Array",
+          "info": "Array of template content to render. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
+          "required": true
+        },
+        {
+          "name": "mergeVars",
+          "type": "Array",
+          "info": "Optional merge variables to use for injecting merge field content. If this is not provided, no merge fields will be replaced",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteTemplate",
+      "description": "Delete a template",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "info": "Template name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAllWebhooks",
+      "description": "Get the list of all webhooks defined on the account",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addWebhook",
+      "description": "Add a new webhook",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "webhookUrl",
+          "type": "String",
+          "info": "The URL to POST batches of events",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "An optional description of the webhook",
+          "required": false
+        },
+        {
+          "name": "events",
+          "type": "Array",
+          "info": "An optional list of events that will be posted to the webhook",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleWebhook",
+      "description": "Given the ID of an existing webhook, return the data about it",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "webhookId",
+          "type": "Number",
+          "info": "The unique identifier of a webhook belonging to this account",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateWebhook",
+      "description": "Update an existing webhook",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "webhookId",
+          "type": "Number",
+          "info": "The unique identifier of a webhook belonging to this account",
+          "required": true
+        },
+        {
+          "name": "webhookUrl",
+          "type": "String",
+          "info": "The URL to POST batches of events",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "String",
+          "info": "An optional description of the webhook",
+          "required": false
+        },
+        {
+          "name": "events",
+          "type": "Array",
+          "info": "An optional list of events that will be posted to the webhook",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteWebhook",
+      "description": "Delete an existing webhook",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "webhookId",
+          "type": "Number",
+          "info": "The unique identifier of a webhook belonging to this account",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSubaccounts",
+      "description": "Get the list of subaccounts defined for the account, optionally filtered by a prefix",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "query",
+          "type": "String",
+          "info": "An optional prefix to filter the subaccounts' ids and names",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addSubaccount",
+      "description": "Add a new subaccount",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "subaccountId",
+          "type": "String",
+          "info": "A unique identifier for the subaccount to be used in sending calls",
+          "required": true
+        },
+        {
+          "name": "subaccountName",
+          "type": "String",
+          "info": "An optional display name to further identify the subaccount",
+          "required": false
+        },
+        {
+          "name": "subaccountNotes",
+          "type": "String",
+          "info": "An optional extra text to associate with the subaccount",
+          "required": false
+        },
+        {
+          "name": "subaccountCustomQuota",
+          "type": "Number",
+          "info": "An optional manual hourly quota for the subaccount. If not specified, Mandrill will manage this based on reputation",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleSubaccount",
+      "description": "Given the ID of an existing subaccount, return the data about it",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "subaccountId",
+          "type": "String",
+          "info": "A unique identifier for the subaccount to be used in sending calls",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateSubaccount",
+      "description": "Update an existing subaccount",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "subaccountId",
+          "type": "String",
+          "info": "A unique identifier of the subaccount to update",
+          "required": true
+        },
+        {
+          "name": "subaccountName",
+          "type": "String",
+          "info": "An optional display name to further identify the subaccount",
+          "required": false
+        },
+        {
+          "name": "subaccountNotes",
+          "type": "String",
+          "info": "An optional extra text to associate with the subaccount",
+          "required": false
+        },
+        {
+          "name": "subaccountCustomQuota",
+          "type": "Number",
+          "info": "An optional manual hourly quota for the subaccount. If not specified, Mandrill will manage this based on reputation",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "pauseSubaccountSending",
+      "description": "Pause a subaccount's sending. Any future emails delivered to this subaccount will be queued for a maximum of 3 days until the subaccount is resumed.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "subaccountId",
+          "type": "String",
+          "info": "A unique identifier of the subaccount",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "resumeSubaccountSending",
+      "description": "Resume a paused subaccount's sending",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "subaccountId",
+          "type": "String",
+          "info": "A unique identifier of the subaccount",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteSubaccount",
+      "description": "Delete an existing subaccount. Any email related to the subaccount will be saved, but stats will be removed and any future sending calls to this subaccount will fail.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "subaccountId",
+          "type": "String",
+          "info": "A unique identifier of the subaccount",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getInboundDomains",
+      "description": "List the domains that have been configured for inbound delivery.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addInboundDomain",
+      "description": "Add an inbound domain to your account",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "checkInboundDomain",
+      "description": "Check the MX settings for an inbound domain. The domain must have already been added with the add-domain call",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getInboundMailboxRoutes",
+      "description": "List the mailbox routes defined for an inbound domain",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addInboundMailboxRoute",
+      "description": "Add a new mailbox route to an inbound domain",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        },
+        {
+          "name": "pattern",
+          "type": "String",
+          "info": "The search pattern that the mailbox name should match",
+          "required": true
+        },
+        {
+          "name": "routeUrl",
+          "type": "String",
+          "info": "The webhook URL where the inbound messages will be published",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateInboundMailboxRoute",
+      "description": "Update the pattern or webhook of an existing inbound mailbox route. If null is provided for any fields, the values will remain unchanged.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "routeId",
+          "type": "String",
+          "info": "Id of the route",
+          "required": true
+        },
+        {
+          "name": "pattern",
+          "type": "String",
+          "info": "The search pattern that the mailbox name should match",
+          "required": false
+        },
+        {
+          "name": "routeUrl",
+          "type": "String",
+          "info": "The webhook URL where the inbound messages will be published",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteInboundMailboxRoute",
+      "description": "Delete an existing inbound mailbox route",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "routeId",
+          "type": "String",
+          "info": "Id of the route",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteInboundMailboxRoute",
+      "description": "Delete an existing inbound mailbox route",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "routeId",
+          "type": "String",
+          "info": "Id of the route",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "sendInboundRaw",
+      "description": "Take a raw MIME document destined for a domain with inbound domains set up, and send it to the inbound hook exactly as if it had been sent over SMTP",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "rawMessage",
+          "type": "String",
+          "info": "The full MIME document of an email message",
+          "required": true
+        },
+        {
+          "name": "to",
+          "type": "Array",
+          "info": "Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
+          "required": false
+        },
+        {
+          "name": "fromEmail",
+          "type": "String",
+          "info": "The address specified in the MAIL FROM stage of the SMTP conversation. Required for the SPF check.",
+          "required": false
+        },
+        {
+          "name": "helo",
+          "type": "String",
+          "info": "The identification provided by the client mta in the MTA state of the SMTP conversation. Required for the SPF check.",
+          "required": false
+        },
+        {
+          "name": "clientAddress",
+          "type": "String",
+          "info": "The remote MTA's ip address. Optional; required for the SPF check.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteInboundDomain",
+      "description": "Delete an inbound domain from the account. All mail will stop routing for this domain immediately.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getAllExports",
+      "description": "Returns a list of your exports.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "startRejectionBlacklistExport",
+      "description": "Begins an export of your rejection blacklist. The blacklist will be exported to a zip archive containing a single file named rejects.csv that includes the following fields: email, reason, detail, created_at, expires_at, last_event_at, expires_at.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "notifyEmail",
+          "type": "String",
+          "info": "An optional email address to notify when the export job has finished.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getExportJob",
+      "description": "Returns information about an export job. If the export job's state is 'complete', the returned data will include a URL you can use to fetch the results. ",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "exportJobId",
+          "type": "String",
+          "info": "Export job identifier",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "startRejectionWhitelistExport",
+      "description": "Begins an export of your rejection whitelist. The whitelist will be exported to a zip archive containing a single file named whitelist.csv that includes the following fields: email, detail, created_at.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "notifyEmail",
+          "type": "String",
+          "info": "An optional email address to notify when the export job has finished.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "startActivityHistoryExport",
+      "description": "Begins an export of your activity history. The activity will be exported to a zip archive containing a single file named activity.csv in the same format as you would be able to export from your account's activity view. It includes the following fields: Date, Email Address, Sender, Subject, Status, Tags, Opens, Clicks, Bounce Detail. If you have configured any custom metadata fields, they will be included in the exported data.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "notifyEmail",
+          "type": "String",
+          "info": "An optional email address to notify when the export job has finished.",
+          "required": false
+        },
+        {
+          "name": "dateFrom",
+          "type": "String",
+          "info": "Start date as a UTC string in YYYY-MM-DD HH:MM:SS format",
+          "required": false
+        },
+        {
+          "name": "dateTo",
+          "type": "String",
+          "info": "End date as a UTC string in YYYY-MM-DD HH:MM:SS format",
+          "required": false
+        },
+        {
+          "name": "tags",
+          "type": "Array",
+          "info": "An array of tag names to narrow the export to; will match messages that contain ANY of the tags",
+          "required": false
+        },
+        {
+          "name": "senders",
+          "type": "Array",
+          "info": "An array of senders to narrow the export to",
+          "required": false
+        },
+        {
+          "name": "states",
+          "type": "Array",
+          "info": "An array of states to narrow the export to; messages with ANY of the states will be included (sent, rejected, bounced, soft-bounced, spam, unsub)",
+          "required": false
+        },
+        {
+          "name": "apiKeys",
+          "type": "Array",
+          "info": "An array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getMyDedicatedIPs",
+      "description": "Lists your dedicated IPs.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleDedicatedIP",
+      "description": "Retrieves information about a single dedicated ip.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "requestDedicatedIP",
+      "description": "Requests an additional dedicated IP for your account. Accounts may have one outstanding request at any time, and provisioning requests are processed within 24 hours.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "warmup",
+          "type": "Boolean",
+          "info": "Whether to enable warmup mode for the ip",
+          "required": false
+        },
+        {
+          "name": "pool",
+          "type": "String",
+          "info": "The id of the pool to add the dedicated ip to, or null to use your account's default pool",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "startWarmupForDedicatedIP",
+      "description": "Begins the warmup process for a dedicated IP. During the warmup process, Mandrill will gradually increase the percentage of your mail that is sent over the warming-up IP, over a period of roughly 30 days. The rest of your mail will be sent over shared IPs or other dedicated IPs in the same pool.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "cancelWarmupForDedicatedIP",
+      "description": "Cancels the warmup process for a dedicated IP.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "movesDedicatedIP",
+      "description": "Moves a dedicated IP to a different pool.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        },
+        {
+          "name": "addressPool",
+          "type": "String",
+          "info": "Name of the new pool to add the dedicated ip to",
+          "required": true
+        },
+        {
+          "name": "createPool",
+          "type": "Boolean",
+          "info": "Whether to create the pool if it does not exist; if false and the pool does not exist, an Unknown_Pool will be thrown.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteDedicatedIP",
+      "description": "Deletes a dedicated IP. This is permanent and cannot be undone.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getMyDedicatedIpPools",
+      "description": "Lists your dedicated IP pools.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createPool",
+      "description": "Creates a pool and returns it. If a pool already exists with this name, no action will be performed.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "poolName",
+          "type": "String",
+          "info": "Name of a pool to create",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getSingleDedicatedIpPool",
+      "description": "Describes a single dedicated IP pool.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "poolName",
+          "type": "String",
+          "info": "Name of a pool",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deletePool",
+      "description": "Deletes a pool. A pool must be empty before you can delete it, and you cannot delete your default pool.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "poolName",
+          "type": "String",
+          "info": "Name of a pool",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "checkCustomDNS",
+      "description": "Tests whether a domain name is valid for use as the custom reverse DNS for a dedicated IP.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name to test",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "setCustomDNS",
+      "description": "Configures the custom DNS name for a dedicated IP.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "ipAddress",
+          "type": "String",
+          "info": "Dedicated IP address",
+          "required": true
+        },
+        {
+          "name": "domain",
+          "type": "String",
+          "info": "Domain name to set",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "getCustomMetadataFields",
+      "description": "Get the list of custom metadata fields indexed for the account.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "addCustomMetadataField",
+      "description": "Add a new custom metadata field to be indexed for the account.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "fieldName",
+          "type": "String",
+          "info": "Unique identifier for the metadata field",
+          "required": true
+        },
+        {
+          "name": "viewTemplate",
+          "type": "String",
+          "info": "Mustache template to control how the metadata is rendered in your activity log",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "updateCustomMetadataField",
+      "description": "Update an existing custom metadata field.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "fieldName",
+          "type": "String",
+          "info": "Unique identifier for the metadata field",
+          "required": true
+        },
+        {
+          "name": "viewTemplate",
+          "type": "String",
+          "info": "Mustache template to control how the metadata is rendered in your activity log",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "deleteCustomMetadataField",
+      "description": "Delete an existing custom metadata field.",
+      "args": [
+        {
+          "name": "apiKey",
+          "type": "credentials",
+          "info": "Api key obtained from Mandrill",
+          "required": true
+        },
+        {
+          "name": "fieldName",
+          "type": "String",
+          "info": "Unique identifier for the metadata field",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+  ]
+}
