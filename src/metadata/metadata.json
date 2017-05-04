@@ -2418,34 +2418,6 @@
       ]
     },
     {
-      "name": "deleteInboundMailboxRoute",
-      "description": "Delete an existing inbound mailbox route",
-      "args": [
-        {
-          "name": "apiKey",
-          "type": "credentials",
-          "info": "Api key obtained from Mandrill",
-          "required": true
-        },
-        {
-          "name": "routeId",
-          "type": "String",
-          "info": "Id of the route",
-          "required": true
-        }
-      ],
-      "callbacks": [
-        {
-          "name": "error",
-          "info": "Error"
-        },
-        {
-          "name": "success",
-          "info": "Success"
-        }
-      ]
-    },
-    {
       "name": "sendInboundRaw",
       "description": "Take a raw MIME document destined for a domain with inbound domains set up, and send it to the inbound hook exactly as if it had been sent over SMTP",
       "args": [

@@ -614,14 +614,6 @@ Delete an existing inbound mailbox route
 | apiKey | credentials| Api key obtained from Mandrill
 | routeId| String     | Id of the route
 
-## Mandrill.deleteInboundMailboxRoute
-Delete an existing inbound mailbox route
-
-| Field  | Type       | Description
-|--------|------------|----------
-| apiKey | credentials| Api key obtained from Mandrill
-| routeId| String     | Id of the route
-
 ## Mandrill.sendInboundRaw
 Take a raw MIME document destined for a domain with inbound domains set up, and send it to the inbound hook exactly as if it had been sent over SMTP
 

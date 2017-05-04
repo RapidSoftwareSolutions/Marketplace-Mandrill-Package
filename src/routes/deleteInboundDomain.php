@@ -11,7 +11,7 @@ $app->post('/api/Mandrill/deleteInboundDomain', function ($request, $response, $
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $query_str = $settings['api_url'] . "inbound/delete.json";
+    $query_str = $settings['api_url'] . "inbound/delete-domain.json";
     $body = array();
     $body['key'] = $post_data['args']['apiKey'];
     $body['domain'] = $post_data['args']['domain'];
