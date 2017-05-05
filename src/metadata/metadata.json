@@ -121,7 +121,7 @@
         },
         {
           "name": "messageTo",
-          "type": "Array",
+          "type": "String",
           "info": "An array of recipient information.",
           "required": true
         },
@@ -223,20 +223,20 @@
         },
         {
           "name": "messageGlobalMergeVars",
-          "type": "Array",
-          "info": "Global merge variables to use for all recipients. You can override these per recipient.",
+          "type": "String",
+          "info": "Array. Global merge variables to use for all recipients. You can override these per recipient.",
           "required": false
         },
         {
           "name": "messageMergeVars",
-          "type": "Array",
-          "info": "Per-recipient merge variables, which override global merge variables with the same name.",
+          "type": "String",
+          "info": "Array. Per-recipient merge variables, which override global merge variables with the same name.",
           "required": false
         },
         {
           "name": "messageTags",
-          "type": "Array",
-          "info": "An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
+          "type": "String",
+          "info": "Array. An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
           "required": false
         },
         {
@@ -247,8 +247,8 @@
         },
         {
           "name": "messageGoogleAnalyticsDomains",
-          "type": "Array",
-          "info": "An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
+          "type": "String",
+          "info": "Array. An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
           "required": false
         },
         {
@@ -259,26 +259,26 @@
         },
         {
           "name": "messageMetadata",
-          "type": "Array",
-          "info": "Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
+          "type": "String",
+          "info": "Array. Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
           "required": false
         },
         {
           "name": "messageRecipientMetadata",
-          "type": "Array",
-          "info": "Per-recipient metadata that will override the global values specified in the metadata parameter.",
+          "type": "String",
+          "info": "Array. Per-recipient metadata that will override the global values specified in the metadata parameter.",
           "required": false
         },
         {
           "name": "messageAttachments",
-          "type": "Array",
-          "info": "An array of supported attachments to add to the message",
+          "type": "String",
+          "info": "Array. An array of supported attachments to add to the message",
           "required": false
         },
         {
           "name": "messageImages",
-          "type": "Array",
-          "info": "An array of embedded images to add to the message",
+          "type": "String",
+          "info": "Array. An array of embedded images to add to the message",
           "required": false
         },
         {
@@ -335,8 +335,8 @@
         },
         {
           "name": "templateContent",
-          "type": "Array",
-          "info": "An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
+          "type": "String",
+          "info": "Array. An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
           "required": true
         },
         {
@@ -365,8 +365,8 @@
         },
         {
           "name": "messageTo",
-          "type": "Array",
-          "info": "An array of recipient information.",
+          "type": "String",
+          "info": "Array. An array of recipient information.",
           "required": true
         },
         {
@@ -467,20 +467,20 @@
         },
         {
           "name": "messageGlobalMergeVars",
-          "type": "Array",
-          "info": "Global merge variables to use for all recipients. You can override these per recipient.",
+          "type": "String",
+          "info": "Array. Global merge variables to use for all recipients. You can override these per recipient.",
           "required": false
         },
         {
           "name": "messageMergeVars",
-          "type": "Array",
-          "info": "Per-recipient merge variables, which override global merge variables with the same name.",
+          "type": "String",
+          "info": "Array. Per-recipient merge variables, which override global merge variables with the same name.",
           "required": false
         },
         {
           "name": "messageTags",
-          "type": "Array",
-          "info": "An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
+          "type": "String",
+          "info": "Array. An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
           "required": false
         },
         {
@@ -491,8 +491,8 @@
         },
         {
           "name": "messageGoogleAnalyticsDomains",
-          "type": "Array",
-          "info": "An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
+          "type": "String",
+          "info": "Array. An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
           "required": false
         },
         {
@@ -503,26 +503,26 @@
         },
         {
           "name": "messageMetadata",
-          "type": "Array",
-          "info": "Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
+          "type": "String",
+          "info": "Array. Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
           "required": false
         },
         {
           "name": "messageRecipientMetadata",
-          "type": "Array",
-          "info": "Per-recipient metadata that will override the global values specified in the metadata parameter.",
+          "type": "String",
+          "info": "Array. Per-recipient metadata that will override the global values specified in the metadata parameter.",
           "required": false
         },
         {
           "name": "messageAttachments",
-          "type": "Array",
-          "info": "An array of supported attachments to add to the message",
+          "type": "String",
+          "info": "Array. An array of supported attachments to add to the message",
           "required": false
         },
         {
           "name": "messageImages",
-          "type": "Array",
-          "info": "An array of embedded images to add to the message",
+          "type": "String",
+          "info": "Array. An array of embedded images to add to the message",
           "required": false
         },
         {
@@ -585,20 +585,20 @@
         },
         {
           "name": "tags",
-          "type": "Array",
-          "info": "An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
+          "type": "String",
+          "info": "Array. An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
           "required": false
         },
         {
           "name": "senders",
-          "type": "Array",
-          "info": "An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
+          "type": "String",
+          "info": "Array. An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
           "required": false
         },
         {
           "name": "apiKeys",
-          "type": "Array",
-          "info": "An array of API keys to narrow the search to, will return messages sent by ANY of the keys",
+          "type": "String",
+          "info": "Array. An array of API keys to narrow the search to, will return messages sent by ANY of the keys",
           "required": false
         },
         {
@@ -649,14 +649,14 @@
         },
         {
           "name": "tags",
-          "type": "Array",
-          "info": "An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
+          "type": "String",
+          "info": "Array. An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
           "required": false
         },
         {
           "name": "senders",
-          "type": "Array",
-          "info": "An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
+          "type": "String",
+          "info": "Array. An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
           "required": false
         }
       ],
@@ -757,8 +757,8 @@
         },
         {
           "name": "to",
-          "type": "Array",
-          "info": "Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
+          "type": "String",
+          "info": "Array. Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
           "required": false
         },
         {
@@ -1569,8 +1569,8 @@
         },
         {
           "name": "labels",
-          "type": "Array",
-          "info": "An optional array of up to 10 labels to use for filtering templates",
+          "type": "String",
+          "info": "Array. An optional array of up to 10 labels to use for filtering templates",
           "required": false
         }
       ],
@@ -1639,8 +1639,8 @@
         },
         {
           "name": "labels",
-          "type": "Array",
-          "info": "An optional array of up to 10 labels to use for filtering templates",
+          "type": "String",
+          "info": "Array. An optional array of up to 10 labels to use for filtering templates",
           "required": false
         }
       ],
@@ -1757,14 +1757,14 @@
         },
         {
           "name": "templateContent",
-          "type": "Array",
-          "info": "Array of template content to render. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
+          "type": "String",
+          "info": "Array. Array of template content to render. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
           "required": true
         },
         {
           "name": "mergeVars",
-          "type": "Array",
-          "info": "Optional merge variables to use for injecting merge field content. If this is not provided, no merge fields will be replaced",
+          "type": "String",
+          "info": "Array. Optional merge variables to use for injecting merge field content. If this is not provided, no merge fields will be replaced",
           "required": false
         }
       ],
@@ -1853,8 +1853,8 @@
         },
         {
           "name": "events",
-          "type": "Array",
-          "info": "An optional list of events that will be posted to the webhook",
+          "type": "String",
+          "info": "Array. An optional list of events that will be posted to the webhook",
           "required": false
         }
       ],
@@ -1927,8 +1927,8 @@
         },
         {
           "name": "events",
-          "type": "Array",
-          "info": "An optional list of events that will be posted to the webhook",
+          "type": "String",
+          "info": "Array. An optional list of events that will be posted to the webhook",
           "required": false
         }
       ],
@@ -2435,8 +2435,8 @@
         },
         {
           "name": "to",
-          "type": "Array",
-          "info": "Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
+          "type": "String",
+          "info": "Array. Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
           "required": false
         },
         {
@@ -2633,26 +2633,26 @@
         },
         {
           "name": "tags",
-          "type": "Array",
-          "info": "An array of tag names to narrow the export to; will match messages that contain ANY of the tags",
+          "type": "String",
+          "info": "Array. An array of tag names to narrow the export to; will match messages that contain ANY of the tags",
           "required": false
         },
         {
           "name": "senders",
-          "type": "Array",
-          "info": "An array of senders to narrow the export to",
+          "type": "String",
+          "info": "Array. An array of senders to narrow the export to",
           "required": false
         },
         {
           "name": "states",
-          "type": "Array",
-          "info": "An array of states to narrow the export to; messages with ANY of the states will be included (sent, rejected, bounced, soft-bounced, spam, unsub)",
+          "type": "String",
+          "info": "Array. An array of states to narrow the export to; messages with ANY of the states will be included (sent, rejected, bounced, soft-bounced, spam, unsub)",
           "required": false
         },
         {
           "name": "apiKeys",
-          "type": "Array",
-          "info": "An array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included",
+          "type": "String",
+          "info": "Array. An array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included",
           "required": false
         }
       ],
