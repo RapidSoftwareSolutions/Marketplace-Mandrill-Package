@@ -11,7 +11,7 @@ $app->post('/api/Mandrill/renderTemplate', function ($request, $response, $args)
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $query_str = $settings['api_url'] . "templates/delete.json";
+    $query_str = $settings['api_url'] . "templates/render.json";
     $body = array();
     $body['key'] = $post_data['args']['apiKey'];
     $body['template_name'] = $post_data['args']['templateName'];
