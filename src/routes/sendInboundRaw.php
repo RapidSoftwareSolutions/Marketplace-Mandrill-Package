@@ -15,7 +15,7 @@ $app->post('/api/Mandrill/sendInboundRaw', function ($request, $response, $args)
     $body = array();
     $body['key'] = $post_data['args']['apiKey'];
     $body['raw_message'] = $post_data['args']['rawMessage'];
-    if (isset($post_data['args']['to']) && count($post_data['args']['to']) > 0) {
+    if (isset($post_data['args']['to']) && strlen($post_data['args']['to']) > 0) {
         $body['to'] = $post_data['args']['to'];
     }
     if (isset($post_data['args']['fromEmail']) && strlen($post_data['args']['fromEmail']) > 0) {
