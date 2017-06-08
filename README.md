@@ -10,6 +10,16 @@ Mandrill
 1. Register or log in
 2. Go to [Settings page](https://mandrillapp.com/settings) to generate or get yout apiKey
 
+## Custom datatypes: 
+ |Datatype|Description|Example
+ |--------|-----------|----------
+ |Datepicker|String which includes date and time|```2016-05-28 00:00:00```
+ |Map|String which includes latitude and longitude coma separated|```50.37, 26.56```
+ |List|Simple array|```["123", "sample"]``` 
+ |Select|String with predefined values|```sample```
+ |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
+ 
+
 ## Mandrill.getUserInfo
 Return the information about the API-connected user
 
@@ -42,7 +52,7 @@ Send a new transactional message through Mandrill
 | messageSubject                | String     | The message subject
 | messageFromEmail              | String     | The sender email address.
 | messageFromName               | String     | Optional from name to be used
-| messageTo                     | Array      | An array of recipient information.
+| messageTo                     | List       | An array of recipient information.
 | messageHeaders                | JSON       | Optional extra headers to add to the message (most headers are allowed)
 | messageImportant              | Boolean    | Whether or not this message is important, and should be delivered ahead of non-important messages
 | messageTrackOpens             | Boolean    | Whether or not to turn on open tracking for the message
@@ -59,19 +69,19 @@ Send a new transactional message through Mandrill
 | messageReturnPathDomain       | String     | A custom domain to use for the messages's return-path
 | messageMerge                  | Boolean    | Whether to evaluate merge tags in the message. Will automatically be set to true if either messageMergeVars or messageGlobalMergeVars are provided.
 | messageMergeLanguage          | String     | The merge tag language to use when evaluating merge tags, either mailchimp or handlebars
-| messageGlobalMergeVars        | Array      | Global merge variables to use for all recipients. You can override these per recipient.
-| messageMergeVars              | Array      | Per-recipient merge variables, which override global merge variables with the same name.
-| messageTags                   | Array      | An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.
+| messageGlobalMergeVars        | List       | Array. Global merge variables to use for all recipients. You can override these per recipient.
+| messageMergeVars              | List       | Array. Per-recipient merge variables, which override global merge variables with the same name.
+| messageTags                   | List       | Array. An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.
 | messageSubaccount             | String     | The unique id of a subaccount for this message - must already exist or will fail with an error
-| messageGoogleAnalyticsDomains | Array      | An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
+| messageGoogleAnalyticsDomains | List       | Array. An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
 | messageGoogleAnalyticsCampaign| String     | String indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
-| messageMetadata               | Array      | Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
-| messageRecipientMetadata      | Array      | Per-recipient metadata that will override the global values specified in the metadata parameter.
-| messageAttachments            | Array      | An array of supported attachments to add to the message
-| messageImages                 | Array      | An array of embedded images to add to the message
+| messageMetadata               | List       | Array. Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+| messageRecipientMetadata      | List       | Array. Per-recipient metadata that will override the global values specified in the metadata parameter.
+| messageAttachments            | List       | Array. An array of supported attachments to add to the message
+| messageImages                 | List       | Array. An array of embedded images to add to the message
 | async                         | Boolean    | Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
 | ipPool                        | String     | The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
-| sendAt                        | String     | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
+| sendAt                        | DatePicker | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
 
 ## Mandrill.sendTemplateTransactionalMessage
 Send a new transactional message through Mandrill using a template
@@ -81,12 +91,12 @@ Send a new transactional message through Mandrill using a template
 | apiKey                        | credentials| Api key obtained from Mandrill
 | messageHtml                   | String     | The full HTML content to be sent
 | templateName                  | String     | The immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.
-| templateContent               | Array      | An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
+| templateContent               | String     | Array. An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
 | messageText                   | String     | Optional full text content to be sent
 | messageSubject                | String     | The message subject
 | messageFromEmail              | String     | The sender email address.
 | messageFromName               | String     | Optional from name to be used
-| messageTo                     | Array      | An array of recipient information.
+| messageTo                     | List       | Array. An array of recipient information.
 | messageHeaders                | JSON       | Optional extra headers to add to the message (most headers are allowed)
 | messageImportant              | Boolean    | Whether or not this message is important, and should be delivered ahead of non-important messages
 | messageTrackOpens             | Boolean    | Whether or not to turn on open tracking for the message
@@ -103,16 +113,16 @@ Send a new transactional message through Mandrill using a template
 | messageReturnPathDomain       | String     | A custom domain to use for the messages's return-path
 | messageMerge                  | Boolean    | Whether to evaluate merge tags in the message. Will automatically be set to true if either messageMergeVars or messageGlobalMergeVars are provided.
 | messageMergeLanguage          | String     | The merge tag language to use when evaluating merge tags, either mailchimp or handlebars
-| messageGlobalMergeVars        | Array      | Global merge variables to use for all recipients. You can override these per recipient.
-| messageMergeVars              | Array      | Per-recipient merge variables, which override global merge variables with the same name.
-| messageTags                   | Array      | An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.
+| messageGlobalMergeVars        | List       | Array. Global merge variables to use for all recipients. You can override these per recipient.
+| messageMergeVars              | List       | Array. Per-recipient merge variables, which override global merge variables with the same name.
+| messageTags                   | List       | Array. An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.
 | messageSubaccount             | String     | The unique id of a subaccount for this message - must already exist or will fail with an error
-| messageGoogleAnalyticsDomains | Array      | An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
+| messageGoogleAnalyticsDomains | List       | Array. An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.
 | messageGoogleAnalyticsCampaign| String     | String indicating the value to set for the utm_campaign tracking parameter. If this isn't provided the email's from address will be used instead.
-| messageMetadata               | Array      | Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
-| messageRecipientMetadata      | Array      | Per-recipient metadata that will override the global values specified in the metadata parameter.
-| messageAttachments            | Array      | An array of supported attachments to add to the message
-| messageImages                 | Array      | An array of embedded images to add to the message
+| messageMetadata               | List       | Array. Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.
+| messageRecipientMetadata      | List       | Array. Per-recipient metadata that will override the global values specified in the metadata parameter.
+| messageAttachments            | List       | Array. An array of supported attachments to add to the message
+| messageImages                 | List       | Array. An array of embedded images to add to the message
 | async                         | Boolean    | Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
 | ipPool                        | String     | The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
 | sendAt                        | String     | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
@@ -124,11 +134,11 @@ Search recently sent messages and optionally narrow by date range, tags, senders
 |---------|------------|----------
 | apiKey  | credentials| Api key obtained from Mandrill
 | query   | String     | Search terms to find matching messages
-| dateFrom| String     | Start date
-| dateTo  | String     | End date
-| tags    | Array      | An array of tag names to narrow the search to, will return messages that contain ANY of the tags
-| senders | Array      | An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders
-| apiKeys | Array      | An array of API keys to narrow the search to, will return messages sent by ANY of the keys
+| dateFrom| DatePicker | Start date
+| dateTo  | DatePicker | End date
+| tags    | List       | Array. An array of tag names to narrow the search to, will return messages that contain ANY of the tags
+| senders | List       | Array. An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders
+| apiKeys | List       | Array. An array of API keys to narrow the search to, will return messages sent by ANY of the keys
 | limit   | Number     | The maximum number of results to return, defaults to 100, 1000 is the maximum
 
 ## Mandrill.searchTimeSeriesMessages
@@ -138,10 +148,10 @@ Search the content of recently sent messages and return the aggregated hourly st
 |---------|------------|----------
 | apiKey  | credentials| Api key obtained from Mandrill
 | query   | String     | Search terms to find matching messages
-| dateFrom| String     | Start date
-| dateTo  | String     | End date
-| tags    | Array      | An array of tag names to narrow the search to, will return messages that contain ANY of the tags
-| senders | Array      | An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders
+| dateFrom| DatePicker | Start date
+| dateTo  | DatePicker | End date
+| tags    | List       | Array. An array of tag names to narrow the search to, will return messages that contain ANY of the tags
+| senders | List       | Array. An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders
 
 ## Mandrill.getSingleMessage
 Get the information for a single recently sent message
@@ -168,10 +178,10 @@ Take a raw MIME document for a message, and send it exactly as if it were sent t
 | rawMessage      | String     | The full MIME document of an email message
 | fromEmail       | String     | Optionally define the sender address - otherwise we'll use the address found in the provided headers
 | fromName        | String     | Optionally define the sender alias
-| to              | Array      | Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
+| to              | List       | Array. Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
 | async           | Boolean    | Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
 | ipPool          | String     | The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
-| sendAt          | String     | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
+| sendAt          | DatePicker | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
 | returnPathDomain| String     | A custom domain to use for the messages's return-path
 
 ## Mandrill.getScheduledEmails
@@ -197,7 +207,7 @@ Reschedules a scheduled email.
 |----------|------------|----------
 | apiKey   | credentials| Api key obtained from Mandrill
 | messageId| String     | A scheduled email id, as returned by any of the messages/send calls or messages/list-scheduled
-| sendAt   | String     | The new UTC timestamp when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately
+| sendAt   | DatePicker | The new date time when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately
 
 ## Mandrill.getUserDefinedTagInfo
 Return all of the user-defined tag information
@@ -390,7 +400,7 @@ Add a new template
 | code     | String     | The HTML code for the template with mc:edit attributes for the editable elements
 | text     | String     | Default text part to be used when sending with this template
 | publish  | Boolean    | Set to false to add a draft template without publishing
-| labels   | Array      | An optional array of up to 10 labels to use for filtering templates
+| labels   | List       | Array. An optional array of up to 10 labels to use for filtering templates
 
 ## Mandrill.updateTemplate
 Update existing template
@@ -405,7 +415,7 @@ Update existing template
 | code     | String     | The HTML code for the template with mc:edit attributes for the editable elements
 | text     | String     | Default text part to be used when sending with this template
 | publish  | Boolean    | Set to false to add a draft template without publishing
-| labels   | Array      | An optional array of up to 10 labels to use for filtering templates
+| labels   | List       | Array. An optional array of up to 10 labels to use for filtering templates
 
 ## Mandrill.getTemplateInfo
 Get the information for an existing template
@@ -438,8 +448,8 @@ Inject content and optionally merge fields into a template, returning the HTML t
 |----------------|------------|----------
 | apiKey         | credentials| Api key obtained from Mandrill
 | templateName   | String     | Template name
-| templateContent| Array      | Array of template content to render. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
-| mergeVars      | Array      | Optional merge variables to use for injecting merge field content. If this is not provided, no merge fields will be replaced
+| templateContent| String     | Array. Array of template content to render. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
+| mergeVars      | List       | Array. Optional merge variables to use for injecting merge field content. If this is not provided, no merge fields will be replaced
 
 ## Mandrill.deleteTemplate
 Delete a template
@@ -464,7 +474,7 @@ Add a new webhook
 | apiKey     | credentials| Api key obtained from Mandrill
 | webhookUrl | String     | The URL to POST batches of events
 | description| String     | An optional description of the webhook
-| events     | Array      | An optional list of events that will be posted to the webhook
+| events     | List       | Array. An optional list of events that will be posted to the webhook
 
 ## Mandrill.getSingleWebhook
 Given the ID of an existing webhook, return the data about it
@@ -483,7 +493,7 @@ Update an existing webhook
 | webhookId  | Number     | The unique identifier of a webhook belonging to this account
 | webhookUrl | String     | The URL to POST batches of events
 | description| String     | An optional description of the webhook
-| events     | Array      | An optional list of events that will be posted to the webhook
+| events     | List       | Array. An optional list of events that will be posted to the webhook
 
 ## Mandrill.deleteWebhook
 Delete an existing webhook
@@ -621,7 +631,7 @@ Take a raw MIME document destined for a domain with inbound domains set up, and 
 |--------------|------------|----------
 | apiKey       | credentials| Api key obtained from Mandrill
 | rawMessage   | String     | The full MIME document of an email message
-| to           | Array      | Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
+| to           | String     | Array. Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document
 | fromEmail    | String     | The address specified in the MAIL FROM stage of the SMTP conversation. Required for the SPF check.
 | helo         | String     | The identification provided by the client mta in the MTA state of the SMTP conversation. Required for the SPF check.
 | clientAddress| String     | The remote MTA's ip address. Optional; required for the SPF check.
@@ -672,12 +682,12 @@ Begins an export of your activity history. The activity will be exported to a zi
 |------------|------------|----------
 | apiKey     | credentials| Api key obtained from Mandrill
 | notifyEmail| String     | An optional email address to notify when the export job has finished.
-| dateFrom   | String     | Start date as a UTC string in YYYY-MM-DD HH:MM:SS format
-| dateTo     | String     | End date as a UTC string in YYYY-MM-DD HH:MM:SS format
-| tags       | Array      | An array of tag names to narrow the export to; will match messages that contain ANY of the tags
-| senders    | Array      | An array of senders to narrow the export to
-| states     | Array      | An array of states to narrow the export to; messages with ANY of the states will be included (sent, rejected, bounced, soft-bounced, spam, unsub)
-| apiKeys    | Array      | An array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included
+| dateFrom   | DatePicker | Start date as a UTC string in YYYY-MM-DD HH:MM:SS format
+| dateTo     | DatePicker | End date as a UTC string in YYYY-MM-DD HH:MM:SS format
+| tags       | List       | Array. An array of tag names to narrow the export to; will match messages that contain ANY of the tags
+| senders    | List       | Array. An array of senders to narrow the export to
+| states     | List       | Array. An array of states to narrow the export to; messages with ANY of the states will be included (sent, rejected, bounced, soft-bounced, spam, unsub)
+| apiKeys    | List       | Array. An array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included
 
 ## Mandrill.getMyDedicatedIPs
 Lists your dedicated IPs.

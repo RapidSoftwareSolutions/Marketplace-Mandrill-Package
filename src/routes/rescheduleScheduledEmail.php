@@ -15,7 +15,13 @@ $app->post('/api/Mandrill/rescheduleScheduledEmail', function ($request, $respon
     $body = array();
     $body['key'] = $post_data['args']['apiKey'];
     $body['id'] = $post_data['args']['messageId'];
-    $body['send_at'] = $post_data['args']['sendAt'];
+    if(is_numeric($post_data['args']['sendAt'])){
+        $sendAt = $post_data['args']['sendAt'];
+    } else {
+        $dateTime = new DateTime($post_data['args']['sendAt']);
+        $sendAt = $dateTime->format('U');
+    }
+    $body['send_at'] = $sendAt;
 
     //requesting remote API
     $client = new GuzzleHttp\Client();

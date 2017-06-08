@@ -121,7 +121,12 @@
         },
         {
           "name": "messageTo",
-          "type": "String",
+          "type": "List",
+          "structure": {
+            "name": "messageTo",
+            "type": "JSON",
+            "info": "Single message to block"
+          },
           "info": "An array of recipient information.",
           "required": true
         },
@@ -223,21 +228,36 @@
         },
         {
           "name": "messageGlobalMergeVars",
-          "type": "String",
+          "type": "List",
+          "structure": {
+            "name": "messageGlobalMergeVar",
+            "type": "JSON",
+            "info": "Single message global merge var block"
+          },
           "info": "Array. Global merge variables to use for all recipients. You can override these per recipient.",
           "required": false
         },
         {
           "name": "messageMergeVars",
-          "type": "String",
+          "type": "List",
           "info": "Array. Per-recipient merge variables, which override global merge variables with the same name.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageMergeVar",
+            "type": "JSON",
+            "info": "Single message merge var block"
+          }
         },
         {
           "name": "messageTags",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageTag",
+            "type": "String",
+            "info": "Single message tag"
+          }
         },
         {
           "name": "messageSubaccount",
@@ -247,9 +267,14 @@
         },
         {
           "name": "messageGoogleAnalyticsDomains",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageGoogleAnalyticsDomain",
+            "type": "String",
+            "info": "Single message google analytic domain"
+          }
         },
         {
           "name": "messageGoogleAnalyticsCampaign",
@@ -259,27 +284,47 @@
         },
         {
           "name": "messageMetadata",
-          "type": "String",
+          "type": "List",
           "info": "Array. Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageMetadata",
+            "type": "JSON",
+            "info": "Single message metadata"
+          }
         },
         {
           "name": "messageRecipientMetadata",
-          "type": "String",
+          "type": "List",
           "info": "Array. Per-recipient metadata that will override the global values specified in the metadata parameter.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageRecipientMetadata",
+            "type": "JSON",
+            "info": "Single message recipient metadata"
+          }
         },
         {
           "name": "messageAttachments",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of supported attachments to add to the message",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageAttachment",
+            "type": "JSON",
+            "info": "Single message attachment"
+          }
         },
         {
           "name": "messageImages",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of embedded images to add to the message",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageImage",
+            "type": "JSON",
+            "info": "Single message image"
+          }
         },
         {
           "name": "async",
@@ -295,7 +340,7 @@
         },
         {
           "name": "sendAt",
-          "type": "String",
+          "type": "DatePicker",
           "info": "When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.",
           "required": false
         }
@@ -365,7 +410,12 @@
         },
         {
           "name": "messageTo",
-          "type": "String",
+          "type": "List",
+          "structure": {
+            "name": "messageTo",
+            "type": "JSON",
+            "info": "Single message to block"
+          },
           "info": "Array. An array of recipient information.",
           "required": true
         },
@@ -467,21 +517,36 @@
         },
         {
           "name": "messageGlobalMergeVars",
-          "type": "String",
+          "type": "List",
+          "structure": {
+            "name": "messageGlobalMergeVar",
+            "type": "JSON",
+            "info": "Single message global merge var block"
+          },
           "info": "Array. Global merge variables to use for all recipients. You can override these per recipient.",
           "required": false
         },
         {
           "name": "messageMergeVars",
-          "type": "String",
+          "type": "List",
           "info": "Array. Per-recipient merge variables, which override global merge variables with the same name.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageMergeVar",
+            "type": "JSON",
+            "info": "Single message merge var block"
+          }
         },
         {
           "name": "messageTags",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of string to tag the message with. Stats are accumulated using tags, though we only store the first 100 we see, so this should not be unique or change frequently. Tags should be 50 characters or less. Any tags starting with an underscore are reserved for internal use and will cause errors.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageTag",
+            "type": "String",
+            "info": "Single message tag"
+          }
         },
         {
           "name": "messageSubaccount",
@@ -491,9 +556,14 @@
         },
         {
           "name": "messageGoogleAnalyticsDomains",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of strings indicating for which any matching URLs will automatically have Google Analytics parameters appended to their query string automatically.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageGoogleAnalyticsDomain",
+            "type": "String",
+            "info": "Single message google analytic domain"
+          }
         },
         {
           "name": "messageGoogleAnalyticsCampaign",
@@ -503,27 +573,47 @@
         },
         {
           "name": "messageMetadata",
-          "type": "String",
+          "type": "List",
           "info": "Array. Metadata an associative array of user metadata. Mandrill will store this metadata and make it available for retrieval. In addition, you can select up to 10 metadata fields to index and make searchable using the Mandrill search api.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageMetadata",
+            "type": "JSON",
+            "info": "Single message metadata"
+          }
         },
         {
           "name": "messageRecipientMetadata",
-          "type": "String",
+          "type": "List",
           "info": "Array. Per-recipient metadata that will override the global values specified in the metadata parameter.",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageRecipientMetadata",
+            "type": "JSON",
+            "info": "Single message recipient metadata"
+          }
         },
         {
           "name": "messageAttachments",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of supported attachments to add to the message",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageAttachment",
+            "type": "JSON",
+            "info": "Single message attachment"
+          }
         },
         {
           "name": "messageImages",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of embedded images to add to the message",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "messageImage",
+            "type": "JSON",
+            "info": "Single message image"
+          }
         },
         {
           "name": "async",
@@ -573,39 +663,55 @@
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Start date",
           "required": false
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "End date",
           "required": false
         },
         {
           "name": "tags",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         },
         {
           "name": "senders",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "sender",
+            "type": "String",
+            "info": "Single sender"
+          }
         },
         {
           "name": "apiKeys",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of API keys to narrow the search to, will return messages sent by ANY of the keys",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "apiKey",
+            "type": "String",
+            "info": "Single apiKey"
+          }
         },
         {
           "name": "limit",
           "type": "Number",
           "info": "The maximum number of results to return, defaults to 100, 1000 is the maximum",
           "required": false
+
         }
       ],
       "callbacks": [
@@ -637,27 +743,37 @@
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Start date",
           "required": false
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "End date",
           "required": false
         },
         {
           "name": "tags",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of tag names to narrow the search to, will return messages that contain ANY of the tags",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         },
         {
           "name": "senders",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of sender addresses to narrow the search to, will return messages sent by ANY of the senders",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "sender",
+            "type": "String",
+            "info": "Single sender"
+          }
         }
       ],
       "callbacks": [
@@ -757,9 +873,14 @@
         },
         {
           "name": "to",
-          "type": "String",
+          "type": "List",
           "info": "Array. Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "to",
+            "type": "String",
+            "info": "Single to email"
+          }
         },
         {
           "name": "async",
@@ -775,7 +896,7 @@
         },
         {
           "name": "sendAt",
-          "type": "String",
+          "type": "DatePicker",
           "info": "When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.",
           "required": false
         },
@@ -871,8 +992,8 @@
         },
         {
           "name": "sendAt",
-          "type": "String",
-          "info": "The new UTC timestamp when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately",
+          "type": "DatePicker",
+          "info": "The new date time when the message should sent. Mandrill can't time travel, so if you specify a time in past the message will be sent immediately",
           "required": true
         }
       ],
@@ -1569,9 +1690,14 @@
         },
         {
           "name": "labels",
-          "type": "String",
+          "type": "List",
           "info": "Array. An optional array of up to 10 labels to use for filtering templates",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "label",
+            "type": "String",
+            "info": "Single label"
+          }
         }
       ],
       "callbacks": [
@@ -1639,9 +1765,14 @@
         },
         {
           "name": "labels",
-          "type": "String",
+          "type": "List",
           "info": "Array. An optional array of up to 10 labels to use for filtering templates",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "label",
+            "type": "String",
+            "info": "Single label"
+          }
         }
       ],
       "callbacks": [
@@ -1763,9 +1894,14 @@
         },
         {
           "name": "mergeVars",
-          "type": "String",
+          "type": "List",
           "info": "Array. Optional merge variables to use for injecting merge field content. If this is not provided, no merge fields will be replaced",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "mergeVar",
+            "type": "JSON",
+            "info": "Single merge var block"
+          }
         }
       ],
       "callbacks": [
@@ -1853,9 +1989,14 @@
         },
         {
           "name": "events",
-          "type": "String",
+          "type": "List",
           "info": "Array. An optional list of events that will be posted to the webhook",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "event",
+            "type": "String",
+            "info": "Single event"
+          }
         }
       ],
       "callbacks": [
@@ -1927,9 +2068,14 @@
         },
         {
           "name": "events",
-          "type": "String",
+          "type": "List",
           "info": "Array. An optional list of events that will be posted to the webhook",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "event",
+            "type": "String",
+            "info": "Single event"
+          }
         }
       ],
       "callbacks": [
@@ -2437,7 +2583,12 @@
           "name": "to",
           "type": "String",
           "info": "Array. Optionally define the recipients to receive the message - otherwise we'll use the To, Cc, and Bcc headers provided in the document",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "to",
+            "type": "String",
+            "info": "Single to field"
+          }
         },
         {
           "name": "fromEmail",
@@ -2621,39 +2772,59 @@
         },
         {
           "name": "dateFrom",
-          "type": "String",
+          "type": "DatePicker",
           "info": "Start date as a UTC string in YYYY-MM-DD HH:MM:SS format",
           "required": false
         },
         {
           "name": "dateTo",
-          "type": "String",
+          "type": "DatePicker",
           "info": "End date as a UTC string in YYYY-MM-DD HH:MM:SS format",
           "required": false
         },
         {
           "name": "tags",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of tag names to narrow the export to; will match messages that contain ANY of the tags",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "tag",
+            "type": "String",
+            "info": "Single tag"
+          }
         },
         {
           "name": "senders",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of senders to narrow the export to",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "sender",
+            "type": "String",
+            "info": "Single sender"
+          }
         },
         {
           "name": "states",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of states to narrow the export to; messages with ANY of the states will be included (sent, rejected, bounced, soft-bounced, spam, unsub)",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "state",
+            "type": "String",
+            "info": "Single state"
+          }
         },
         {
           "name": "apiKeys",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of api keys to narrow the export to; messsagse sent with ANY of the keys will be included",
-          "required": false
+          "required": false,
+          "structure": {
+            "name": "apiKey",
+            "type": "String",
+            "info": "Single apiKey"
+          }
         }
       ],
       "callbacks": [
