@@ -18,7 +18,7 @@ $app->post('/api/Mandrill/addWebhook', function ($request, $response, $args) {
     if (isset($post_data['args']['description']) && strlen($post_data['args']['description']) > 0) {
         $body['description'] = $post_data['args']['description'];
     }
-   if (isset($post_data['args']['events']) && strlen($post_data['args']['events']) > 0) {
+   if (isset($post_data['args']['events']) && count($post_data['args']['events']) > 0) {
         $body['events'] = $post_data['args']['events'];
     }
 
