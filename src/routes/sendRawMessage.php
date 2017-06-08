@@ -22,7 +22,7 @@ $app->post('/api/Mandrill/sendRawMessage', function ($request, $response, $args)
     if (isset($post_data['args']['fromName']) && strlen($post_data['args']['fromName']) > 0) {
         $body['from_name'] = $post_data['args']['fromName'];
     }
-    if (isset($post_data['args']['to']) && strlen($post_data['args']['to']) > 0) {
+    if (isset($post_data['args']['to']) && count($post_data['args']['to']) > 0) {
         $body['to'] = $post_data['args']['to'];
     }
     if (isset($post_data['args']['async']) && strlen($post_data['args']['async']) > 0) {

@@ -33,7 +33,7 @@ $app->post('/api/Mandrill/updateTemplate', function ($request, $response, $args)
     if (isset($post_data['args']['publish']) && strlen($post_data['args']['publish']) > 0) {
         $body['publish'] = $post_data['args']['publish'];
     }
-    if (isset($post_data['args']['labels']) && strlen($post_data['args']['labels']) > 0) {
+    if (isset($post_data['args']['labels']) && count($post_data['args']['labels']) > 0) {
         $body['labels'] = $post_data['args']['labels'];
     }
 

@@ -16,7 +16,7 @@ $app->post('/api/Mandrill/renderTemplate', function ($request, $response, $args)
     $body['key'] = $post_data['args']['apiKey'];
     $body['template_name'] = $post_data['args']['templateName'];
     $body['template_content'] = $post_data['args']['templateContent'];
-    if (isset($post_data['args']['mergeVars']) && strlen($post_data['args']['mergeVars']) > 0) {
+    if (isset($post_data['args']['mergeVars']) && count($post_data['args']['mergeVars']) > 0) {
         $body['merge_vars'] = $post_data['args']['mergeVars'];
     }
 

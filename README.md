@@ -91,7 +91,7 @@ Send a new transactional message through Mandrill using a template
 | apiKey                        | credentials| Api key obtained from Mandrill
 | messageHtml                   | String     | The full HTML content to be sent
 | templateName                  | String     | The immutable name or slug of a template that exists in the user's account. For backwards-compatibility, the template name may also be used but the immutable slug is preferred.
-| templateContent               | String     | Array. An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
+| templateContent               | List     | Array. An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block
 | messageText                   | String     | Optional full text content to be sent
 | messageSubject                | String     | The message subject
 | messageFromEmail              | String     | The sender email address.
@@ -125,7 +125,7 @@ Send a new transactional message through Mandrill using a template
 | messageImages                 | List       | Array. An array of embedded images to add to the message
 | async                         | Boolean    | Enable a background sending mode that is optimized for bulk sending. In async mode, messages/send will immediately return a status of "queued" for every recipient. To handle rejections when sending in async mode, set up a webhook for the 'reject' event. Defaults to false for messages with no more than 10 recipients; messages with more than 10 recipients are always sent asynchronously, regardless of the value of async.
 | ipPool                        | String     | The name of the dedicated ip pool that should be used to send the message. If you do not have any dedicated IPs, this parameter has no effect. If you specify a pool that does not exist, your default pool will be used instead.
-| sendAt                        | String     | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
+| sendAt                        | DatePicker     | When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.
 
 ## Mandrill.searchMessages
 Search recently sent messages and optionally narrow by date range, tags, senders, and API keys.

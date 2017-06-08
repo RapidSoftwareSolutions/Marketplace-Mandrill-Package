@@ -23,10 +23,10 @@ $app->post('/api/Mandrill/searchTimeSeriesMessages', function ($request, $respon
     if (isset($post_data['args']['dateTo']) && strlen($post_data['args']['dateTo']) > 0) {
         $body['date_to'] = $post_data['args']['dateTo'];
     }
-    if (isset($post_data['args']['tags']) && strlen($post_data['args']['tags']) > 0) {
+    if (isset($post_data['args']['tags']) && count($post_data['args']['tags']) > 0) {
         $body['tags'] = $post_data['args']['tags'];
     }
-    if (isset($post_data['args']['senders']) && strlen($post_data['args']['senders']) > 0) {
+    if (isset($post_data['args']['senders']) && count($post_data['args']['senders']) > 0) {
         $body['senders'] = $post_data['args']['senders'];
     }
 

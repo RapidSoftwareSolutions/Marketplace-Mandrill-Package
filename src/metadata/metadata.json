@@ -380,9 +380,14 @@
         },
         {
           "name": "templateContent",
-          "type": "String",
+          "type": "List",
           "info": "Array. An array of template content to send. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "templateContent",
+            "type": "JSON",
+            "info": "Single templateContent"
+          }
         },
         {
           "name": "messageText",
@@ -629,7 +634,7 @@
         },
         {
           "name": "sendAt",
-          "type": "String",
+          "type": "DatePicker",
           "info": "When this message should be sent as a UTC timestamp in YYYY-MM-DD HH:MM:SS format. If you specify a time in the past, the message will be sent immediately. An additional fee applies for scheduled email, and this feature is only available to accounts with a positive balance.",
           "required": false
         }

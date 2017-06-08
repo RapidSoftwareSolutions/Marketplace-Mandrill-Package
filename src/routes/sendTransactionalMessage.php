@@ -79,34 +79,34 @@ $app->post('/api/Mandrill/sendTransactionalMessage', function ($request, $respon
     if (isset($post_data['args']['messageMergeLanguage']) && strlen($post_data['args']['messageMergeLanguage']) > 0) {
         $body['message']['merge_language'] = $post_data['args']['messageMergeLanguage'];
     }
-    if (isset($post_data['args']['messageGlobalMergeVars']) && strlen($post_data['args']['messageGlobalMergeVars']) > 0) {
+    if (isset($post_data['args']['messageGlobalMergeVars']) && count($post_data['args']['messageGlobalMergeVars']) > 0) {
         $body['message']['global_merge_vars'] = $post_data['args']['messageGlobalMergeVars'];
     }
-    if (isset($post_data['args']['messageMergeVars']) && strlen($post_data['args']['messageMergeVars']) > 0) {
+    if (isset($post_data['args']['messageMergeVars']) && count($post_data['args']['messageMergeVars']) > 0) {
         $body['message']['merge_vars'] = $post_data['args']['messageMergeVars'];
     }
-    if (isset($post_data['args']['messageTags']) && strlen($post_data['args']['messageTags']) > 0) {
+    if (isset($post_data['args']['messageTags']) && count($post_data['args']['messageTags']) > 0) {
         $body['message']['tags'] = $post_data['args']['messageTags'];
     }
     if (isset($post_data['args']['messageSubaccount']) && strlen($post_data['args']['messageSubaccount']) > 0) {
         $body['message']['subaccount'] = $post_data['args']['messageSubaccount'];
     }
-    if (isset($post_data['args']['messageGoogleAnalyticsDomains']) && strlen($post_data['args']['messageGoogleAnalyticsDomains']) > 0) {
+    if (isset($post_data['args']['messageGoogleAnalyticsDomains']) && count($post_data['args']['messageGoogleAnalyticsDomains']) > 0) {
         $body['message']['google_analytics_domains'] = $post_data['args']['messageGoogleAnalyticsDomains'];
     }
     if (isset($post_data['args']['messageGoogleAnalyticsCampaign']) && strlen($post_data['args']['messageGoogleAnalyticsCampaign']) > 0) {
         $body['message']['google_analytics_campaign'] = $post_data['args']['messageGoogleAnalyticsCampaign'];
     }
-    if (isset($post_data['args']['messageMetadata']) && strlen($post_data['args']['messageMetadata']) > 0) {
+    if (isset($post_data['args']['messageMetadata']) && count($post_data['args']['messageMetadata']) > 0) {
         $body['message']['metadata'] = $post_data['args']['messageMetadata'];
     }
-    if (isset($post_data['args']['messageRecipientMetadata']) && strlen($post_data['args']['messageRecipientMetadata']) > 0) {
+    if (isset($post_data['args']['messageRecipientMetadata']) && count($post_data['args']['messageRecipientMetadata']) > 0) {
         $body['message']['recipient_metadata'] = $post_data['args']['messageRecipientMetadata'];
     }
-    if (isset($post_data['args']['messageAttachments']) && strlen($post_data['args']['messageAttachments']) > 0) {
+    if (isset($post_data['args']['messageAttachments']) && count($post_data['args']['messageAttachments']) > 0) {
         $body['message']['attachments'] = $post_data['args']['messageAttachments'];
     }
-    if (isset($post_data['args']['messageImages']) && strlen($post_data['args']['messageImages']) > 0) {
+    if (isset($post_data['args']['messageImages']) && count($post_data['args']['messageImages']) > 0) {
         $body['message']['images'] = $post_data['args']['messageImages'];
     }
     if (isset($post_data['args']['async']) && strlen($post_data['args']['async']) > 0) {
