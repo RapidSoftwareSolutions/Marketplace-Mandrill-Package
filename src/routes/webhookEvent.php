@@ -8,11 +8,9 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
     } else {
         $post_data = $validateRes;
     }
-
-
     $reply = [
         "http_resp" => "",
-        "client_msg" => $post_data['args']['body'],
+        "client_msg" => $request,
         "params" => $post_data['args']['params']
     ];
 
