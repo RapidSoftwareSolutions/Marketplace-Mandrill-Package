@@ -19,6 +19,18 @@ Mandrill
  |Select|String with predefined values|```sample```
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
+ ## Webhook credentials
+ Please use SDK to test this feature.
+ 0. Go to [RapidAPI](http://rapidapi.com)
+ 1. Log in or create an account
+ 2. Go to [My apps](https://dashboard.rapidapi.com/projects)
+ 3. Add new project with projectName to get your project Key
+ | Field      | Type       | Description
+ |------------|------------|----------
+ | projectName     | credentials| Your RapidAPI project name
+ | projectKey | credentials     | Your RapidAPI project key
+ 
+ 
 
 ## Mandrill.getUserInfo
 Return the information about the API-connected user
@@ -467,14 +479,17 @@ Get the list of all webhooks defined on the account
 | apiKey| credentials| Api key obtained from Mandrill
 
 ## Mandrill.addWebhook
-Add a new webhook
+Add a new webhook. You can use our service as webhookUrl: 
+```
+https://webhooks.rapidapi.com/api/message/Mandrill/webhookEvent/{projectName}/{projectKey} * see credentials description above
+```
 
 | Field      | Type       | Description
 |------------|------------|----------
 | apiKey     | credentials| Api key obtained from Mandrill
 | webhookUrl | String     | The URL to POST batches of events
 | description| String     | An optional description of the webhook
-| events     | List       | Array. An optional list of events that will be posted to the webhook
+| events     | List       | Array. An optional list of events that will be posted to the webhook: send, hard_bounce, soft_bounce, open, click, spam, unsub, reject, blacklist, whitelist
 
 ## Mandrill.getSingleWebhook
 Given the ID of an existing webhook, return the data about it

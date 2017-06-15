@@ -14,7 +14,7 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
         "client_msg" => $post_data['args']['body'],
         "params" => $post_data['args']['params']
     ];
-    
+
     $result['callback'] = 'success';
     $result['contextWrites']['to'] = $reply;
 

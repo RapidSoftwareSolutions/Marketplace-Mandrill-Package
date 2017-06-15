@@ -12,6 +12,39 @@
       "apiKey"
     ]
   },
+  "events":[
+    {
+      "name": "webhookEvent",
+      "description": "This method is called every time when webhook event happens",
+      "payload": {
+        "mandrill_events": [
+          {
+            "type": "whitelist",
+            "action": "add",
+            "entry": {
+              "email": "7@89.com",
+              "detail": "Added manually via the API",
+              "created_at": "2017-06-15 14:09:36"
+            },
+            "ts": 1497535776
+          }
+        ]
+      },
+      "steps": [
+        "Go to add addWebhook block",
+        "Set webhookUrl to __WEBHOOK_URL__"
+      ],
+      "args": [
+        {
+          "name": "token",
+          "type": "string",
+          "info": "Token sent on each message",
+          "required": true
+        }
+      ]
+    }
+  ],
+
   "blocks": [
     {
       "name": "getUserInfo",
@@ -1995,7 +2028,7 @@
         {
           "name": "events",
           "type": "List",
-          "info": "Array. An optional list of events that will be posted to the webhook",
+          "info": "Array. An optional list of events that will be posted to the webhook: send, hard_bounce, soft_bounce, open, click, spam, unsub, reject, blacklist, whitelist",
           "required": false,
           "structure": {
             "name": "event",
