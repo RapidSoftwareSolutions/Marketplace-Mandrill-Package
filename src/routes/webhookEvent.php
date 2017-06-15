@@ -8,9 +8,16 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
     } else {
         $post_data = $validateRes;
     }
+
+    $client = new GuzzleHttp\Client();
+
+        $resp = $client->request('POST', 'http://d7c2294c.ngrok.io', [
+            'json' => $post_data['args']
+        ]);
+
     $reply = [
         "http_resp" => "",
-        "client_msg" => $request,
+        "client_msg" => $post_data['args'],
         "params" => $post_data['args']['params']
     ];
 
