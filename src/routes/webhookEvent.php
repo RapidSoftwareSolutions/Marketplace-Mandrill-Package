@@ -22,7 +22,7 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
     ];
 
     $result['callback'] = 'success';
-    $result['contextWrites']['to'] = $reply;
+    $result['contextWrites']['to'] = json_encode($reply);
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
