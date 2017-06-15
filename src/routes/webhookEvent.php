@@ -15,16 +15,16 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
         "params" => $post_data['args']['params']
     ];
 
-    $client = new GuzzleHttp\Client();
-
-        $resp = $client->request('POST', 'http://d7c2294c.ngrok.io', [
-            'json' => $reply
-        ]);
-
+//    $client = new GuzzleHttp\Client();
+//
+//        $resp = $client->request('POST', 'http://d7c2294c.ngrok.io', [
+//            'json' => $reply
+//        ]);
+//
 
 
     $result['callback'] = 'success';
-    $result['contextWrites']['to'] = json_encode($reply);
+    $result['contextWrites']['to'] = $reply;
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
