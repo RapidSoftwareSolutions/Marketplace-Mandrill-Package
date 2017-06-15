@@ -25,6 +25,7 @@ Mandrill
  1. Log in or create an account
  2. Go to [My apps](https://dashboard.rapidapi.com/projects)
  3. Add new project with projectName to get your project Key
+ 
  | Field      | Type       | Description
  |------------|------------|----------
  | projectName     | credentials| Your RapidAPI project name
