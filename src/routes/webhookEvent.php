@@ -9,10 +9,11 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
         $post_data = $validateRes;
     }
 
+
     $result = [
         "http_resp" => "",
-        "client_msg" => $post_data['args'],
-        "params" => []
+        "client_msg" => $post_data['args']['body'],
+        "params" => $post_data['args']['params']
     ];
     $client = new GuzzleHttp\Client();
     try {
