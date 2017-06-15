@@ -12,7 +12,7 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
 
     $reply = [
         "http_resp" => "",
-        "client_msg" => $post_data['args']['body'],
+        "client_msg" => json_decode($post_data['args']['body'], true),
         "params" => $post_data['args']['params']
     ];
 
