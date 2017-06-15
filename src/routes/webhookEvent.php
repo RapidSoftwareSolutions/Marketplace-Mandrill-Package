@@ -10,14 +10,14 @@ $app->post('/api/Mandrill/webhookEvent', function ($request, $response, $args) {
     }
 
 
-    $result = [
+    $reply = [
         "http_resp" => "",
         "client_msg" => $post_data['args']['body'],
         "params" => $post_data['args']['params']
     ];
-   
+
     $result['callback'] = 'success';
-    $result['contextWrites']['to'] = $result;
+    $result['contextWrites']['to'] = $reply;
 
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
