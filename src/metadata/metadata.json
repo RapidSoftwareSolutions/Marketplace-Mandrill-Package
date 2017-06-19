@@ -1926,9 +1926,14 @@
         },
         {
           "name": "templateContent",
-          "type": "String",
+          "type": "List",
           "info": "Array. Array of template content to render. Each item in the array should be a struct with two keys - name: the name of the content block to set the content for, and content: the actual content to put into the block",
-          "required": true
+          "required": true,
+          "structure": {
+            "name": "templateContent",
+            "type": "JSON",
+            "info": "Single templateContent"
+          }
         },
         {
           "name": "mergeVars",
@@ -2016,7 +2021,7 @@
         {
           "name": "webhookUrl",
           "type": "String",
-          "info": "The URL to POST batches of events",
+          "info": "The URL to POST batches of events. You can use our service as webhookUrl: https://webhooks.rapidapi.com/api/message/Mandrill/webhookEvent/{projectName}/{projectKey} * see credentials description above ",
           "required": true
         },
         {
