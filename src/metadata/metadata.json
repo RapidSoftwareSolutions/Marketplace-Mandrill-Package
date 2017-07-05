@@ -15,7 +15,7 @@
   "events":[
     {
       "name": "webhookEvent",
-      "description": "This method is called every time when webhook event happens",
+      "description": "This method is called every time a Mandrill webhook event occurs",
       "payload": {
         "mandrill_events": [
           {
@@ -31,8 +31,8 @@
         ]
       },
       "steps": [
-        "Go to add addWebhook block",
-        "Set webhookUrl to __WEBHOOK_URL__"
+        "Navigate to https://rapidapi.com/package/Mandrill/functions/addWebhook",
+        "Set webhookUrl the following URL: __WEBHOOK_URL__"
       ],
       "args": [
         {
