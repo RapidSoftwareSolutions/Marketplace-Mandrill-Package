@@ -6,9 +6,10 @@ Mandrill
 * Credentials: apiKey
 
 ## How to get credentials: 
-0. Go to [Mandrill website](http://mandrill.com)
-1. Register or log in
-2. Go to [Settings page](https://mandrillapp.com/settings) to generate or get yout apiKey
+1. Log in to you [Mailchimp](https://admin.mailchimp.com/) account
+2. In the upper right hand corner, select your user drop down, and then the 'Profile' submenu
+3. Within your Profile settings, access the Transactional area and launch Mandrill
+4. Access Mandrill Settings Menu Item and click ‘SMTP & API Info’. Create your API Key.
 
 ## Custom datatypes: 
  |Datatype|Description|Example
