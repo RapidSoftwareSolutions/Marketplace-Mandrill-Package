@@ -44,7 +44,12 @@
       ]
     }
   ],
-
+  "steps": [
+    "Log in to you Mailchimp account (https://admin.mailchimp.com/)",
+    "In the upper right hand corner, select your user drop down, and then the 'Profile' submenu",
+    "Within your Profile settings, access the Transactional area and launch Mandrill",
+    "Access Mandrill Settings Menu Item and click ‘SMTP & API Info’. Create your API Key"
+  ],
   "blocks": [
     {
       "name": "getUserInfo",
